@@ -1,3 +1,13 @@
+.header {
+  /* background-color: rgb(71, 58, 48); */
+  width: 100%;
+  display: flex;
+
+  /* align-items: end; */
+  gap: 12px;
+  letter-spacing: 1.3px;
+}
+
 .nav {
   display: flex;
   gap: 10px;
@@ -14,4 +24,16 @@
 
 .active {
   color: orange;
+}
+.linkIcon {
+  display: flex;
+  /* align-items: flex-end; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: 80px;
+  height: 80px;
+  padding: 4px;
+  border-radius: 50%;
 }

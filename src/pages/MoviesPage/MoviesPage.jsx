@@ -1,14 +1,11 @@
-import style from "./MoviesPage.module.css"
-import { Field, Form, Formik } from 'formik';
+import SearchForm from '../../components/SearchForm/SearchForm';
+import style from './MoviesPage.module.css';
 
 const MoviesPage = () => {
   return (
-    <Formik initialValues={{}} onSubmit={() => {}}>
-      <Form className={style.form}>
-        <Field type="text" name="text" />
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+    <div className={style.page}>
+      <SearchForm />
+    </div>
   );
 };
 export default MoviesPage;

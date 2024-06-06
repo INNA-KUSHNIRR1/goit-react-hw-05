@@ -83,7 +83,7 @@ button:focus-visible {
   }
 } */
 button {
-  min-width: 250px;
+  min-width: 200px;
   min-height: 60px;
   font-family: 'Nunito', sans-serif;
   font-size: 22px;
@@ -110,7 +110,7 @@ button {
 button::before {
   content: '';
   border-radius: 1000px;
-  min-width: calc(250px + 12px);
+  min-width: calc(200px + 12px);
   min-height: calc(60px + 12px);
   border: 6px solid #6692d4;
   box-shadow: 0 0 60px rgba(64, 156, 218, 0.64);
@@ -163,5 +163,24 @@ button:focus::after {
     width: 300px;
     height: 300px;
     opacity: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  button {
+    min-width: 250px;
+  }
+  button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(250px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #6692d4;
+    box-shadow: 0 0 60px rgba(64, 156, 218, 0.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s;
   }
 }

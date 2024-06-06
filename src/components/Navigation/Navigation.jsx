@@ -11,6 +11,7 @@ const Navigation = () => {
     <>
       <header className={style.header}>
         <nav className={style.nav}>
+         
           <div className={style.linkIcon}>
             <IoHomeOutline color="white" size={30} />
             <NavLink to="/" className={buildLinkClass}>

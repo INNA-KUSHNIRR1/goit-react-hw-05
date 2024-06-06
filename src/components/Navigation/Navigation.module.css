@@ -20,6 +20,7 @@
 
 .link:hover {
   text-decoration: underline;
+  color: orange;
 }
 
 .active {
@@ -31,10 +32,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
+  border: 1px solid rgba(48, 139, 199);
   width: 80px;
   height: 80px;
   padding: 4px;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(48, 139, 199, 0.64);
+  box-shadow: 0 0 20px rgba(48, 139, 199, 0.64);
+  /* background-color: rgba(73, 82, 94, 0.6); */
+}
+.linkIcon:hover,
+.linkIcon:focus,
+.linkIcon:active {
+  background-color: rgb(121, 180, 228, 0.2);
 }

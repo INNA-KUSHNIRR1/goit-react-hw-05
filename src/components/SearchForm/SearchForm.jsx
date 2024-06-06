@@ -5,6 +5,7 @@ const SearchForm = () => {
   const handleSubmit = (values, actions) => {
     const textInput = values.text;
     console.log(textInput);
+    //   fetchMoviesFromApi(textInput);
     //   setSearchParams({ query: value });
     actions.resetForm();
   };

@@ -1,3 +1,22 @@
 .list {
-  
+  margin-top: 40px;
+}
+.titleList {
+  color: rgb(238, 138, 23);
+  margin-top: 50px;
+  text-transform: uppercase;
+}
+.title {
+  color: rgb(190, 203, 206);
+}
+
+.boxLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(152, 177, 243);
+}
+.boxLink:hover {
+  text-decoration: underline;
+  color: rgb(238, 138, 23);
 }

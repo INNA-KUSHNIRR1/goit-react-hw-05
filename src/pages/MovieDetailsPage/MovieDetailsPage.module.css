@@ -1,11 +1,6 @@
 .wrapper {
   margin-top: 50px;
 }
-.title {
-  color: rgb(238, 138, 23);
-  text-transform: uppercase;
-  margin-top: 20px;
-}
 .nav {
   display: flex;
   gap: 20px;
@@ -41,4 +36,32 @@
 .span {
   color: rgb(196, 205, 219);
   font-weight: 500;
+}
+.movieDetails {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.poster {
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  align-items: stretch;
+  /* row-gap: 10px; */
+  justify-content: space-between;
+}
+
+.title {
+  color: rgb(196, 205, 219);
+  text-transform: uppercase;
+  /* margin-bottom: 40px; */
+}
+
+.overview {
+  margin-bottom: 60px;
 }

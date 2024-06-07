@@ -38,20 +38,23 @@ const MovieDetailsPage = () => {
           <span className={style.span}>Go back</span>
         </div>
       </Link>
-      <h2 className={style.title}>Movie Details</h2>
-      <h3>{movieId}</h3>
-      {/* {!loading && movie &&(
+
+      {!loading && movie && (
         <div className={style.movieDetails}>
-          <h4>{movie.title}</h4>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.title}
-          />
-          <p>{movie.overview}</p>
-          <p>Release Date: {movie.release_date}</p>
-          <p>Rating: {movie.vote_average}</p>
+          <div className={style.poster}>
+            <img
+              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+              alt={movie.title}
+            />
+          </div>
+          <div className={style.description}>
+            <h1 className={style.title}>{movie.title}</h1>
+            <p className={style.overview}>{movie.overview}</p>
+            <p>Release Date: {movie.release_date}</p>
+            <p>Rating: {movie.vote_average}</p>
+          </div>
         </div>
-      )} */}
+      )}
       <nav className={style.nav}>
         <NavLink to="cast" className={buildLinkClass}>
           Cast

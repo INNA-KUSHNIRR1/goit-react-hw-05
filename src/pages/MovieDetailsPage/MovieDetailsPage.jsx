@@ -14,9 +14,9 @@ const MovieDetailsPage = () => {
   const [loading, setLoading] = useState(true);
 
   console.log('MovieDetailsPage', movie);
-  console.log('movieId', typeof movieId);
+  console.log('movieId', movieId);
 
-  useEffect(movieId => {
+  useEffect(() => {
     const getMovieDetails = async () => {
       try {
         const data = await fetchMovieDetails(movieId);
@@ -28,7 +28,7 @@ const MovieDetailsPage = () => {
       }
     };
     getMovieDetails();
-  });
+  }, [movieId]);
 
   return (
     <div className={style.wrapper}>
@@ -40,14 +40,14 @@ const MovieDetailsPage = () => {
       </Link>
       <h2 className={style.title}>Movie Details</h2>
       <h3>{movieId}</h3>
-      {/* {!loading && (
+      {/* {!loading && movie &&(
         <div className={style.movieDetails}>
-          <h4>{movie.title}</h4> */}
-      {/* <img
+          <h4>{movie.title}</h4>
+          <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
-          /> */}
-      {/* <p>{movie.overview}</p>
+          />
+          <p>{movie.overview}</p>
           <p>Release Date: {movie.release_date}</p>
           <p>Rating: {movie.vote_average}</p>
         </div>

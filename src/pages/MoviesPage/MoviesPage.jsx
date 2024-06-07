@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import style from './MoviesPage.module.css';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { searchMovies } from '../../api/api';
 
 const MoviesPage = () => {
@@ -12,12 +12,6 @@ const MoviesPage = () => {
 
   console.log('moviesPage', query);
   console.log('moviesPageResults', movies);
-
-  const { movieId } = useParams();
-  console.log(movieId);
-  useEffect(() => {
-    if (!movieId) return;
-  }, [movieId]);
 
   useEffect(() => {
     async function getSearchMovies() {
@@ -42,7 +36,9 @@ const MoviesPage = () => {
       <div className={style.page}>
         <SearchForm submit={searchMovie} />
       </div>
-      <div>{/* <MovieList results={results} /> */}</div>
+      <div>
+        <MovieList movies={movies} />
+      </div>
     </div>
   );
 };

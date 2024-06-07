@@ -6,7 +6,6 @@ const MovieList = ({ movies }) => {
   console.log('list', movies);
   return (
     <>
-      <h2 className={style.titleList}>Trending movies</h2>
       <ul className={style.list}>
         {movies.map(movie => {
           return (

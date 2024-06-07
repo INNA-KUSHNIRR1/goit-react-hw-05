@@ -23,6 +23,7 @@ const HomePage = () => {
 
   return (
     <main className={style.main}>
+      <h2 className={style.titleList}>Trending movies</h2>
       {!loading && <MovieList movies={movies} />}
     </main>
   );

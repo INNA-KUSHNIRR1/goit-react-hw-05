@@ -16,7 +16,7 @@ const SearchForm = ({ submit }) => {
           className={style.input}
           type="text"
           name="text"
-          placeholder="Search..."
+          placeholder="Search movie..."
         />
         <div className={style.wrap}>
           <button className={style.btn} type="submit">

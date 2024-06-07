@@ -1,14 +1,14 @@
 import { Field, Form, Formik } from 'formik';
 import style from './SearchForm.module.css';
 
-const SearchForm = () => {
+const SearchForm = ({ submit }) => {
   const handleSubmit = (values, actions) => {
     const textInput = values.text;
-    console.log(textInput);
-    //   fetchMoviesFromApi(textInput);
-    //   setSearchParams({ query: value });
+    console.log('forma', textInput);
+    submit(textInput);
     actions.resetForm();
   };
+
   return (
     <Formik initialValues={{ text: '' }} onSubmit={handleSubmit}>
       <Form className={style.form}>

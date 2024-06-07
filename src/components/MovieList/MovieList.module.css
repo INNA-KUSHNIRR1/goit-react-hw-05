@@ -14,7 +14,8 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  color: rgba(152, 177, 243);
+  /* color: rgba(152, 177, 243); */
+  color: rgb(238, 138, 23);
 }
 .boxLink:hover {
   text-decoration: underline;

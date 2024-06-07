@@ -11,9 +11,9 @@ const MovieList = ({ movies }) => {
         {movies.map(movie => {
           return (
             <li key={movie.id}>
-              <Link to="/movies/:movieId">
+              <Link to={`/movies/${movie.id}`}>
                 <div className={style.boxLink}>
-                  <BiSolidCameraMovie  />
+                  <BiSolidCameraMovie />
                   <h3 className={style.title}>{movie.title}</h3>
                 </div>
               </Link>

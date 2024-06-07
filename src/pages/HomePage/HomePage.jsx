@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import style from './HomePage.module.css';
-import getMoviesFromApi from '../../api/api';
+import { fetchTrendingMovies } from '../../api/api';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -10,7 +10,7 @@ const HomePage = () => {
   useEffect(() => {
     async function getTrendingMovies() {
       try {
-        const { results } = await getMoviesFromApi();
+        const { results } = await fetchTrendingMovies();
         setMovies(results);
       } catch (error) {
         console.error('error in App', error);

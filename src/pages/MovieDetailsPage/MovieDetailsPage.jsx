@@ -13,8 +13,8 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  console.log('MovieDetailsPage', movie);
-  console.log('movieId', movieId);
+  // console.log('MovieDetailsPage', movie);
+  // console.log('movieId', movieId);
 
   useEffect(() => {
     async function getMovieDetails() {

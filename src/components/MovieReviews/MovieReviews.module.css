@@ -1,0 +1,25 @@
+.date {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 5px;
+  color: rgb(141, 142, 148);
+}
+.listReviews {
+  text-align: justify;
+}
+.cardReview {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: rgba(63, 71, 117, 0.3);
+  padding: 5px;
+  color: rgb(212, 217, 236);
+}
+.name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: underline;
+  /* color: orange; */
+  color: rgb(265, 165, 0, 0.8);
+}

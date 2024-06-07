@@ -42,3 +42,96 @@ input::placeholder {
     min-width: 400px;
   }
 }
+.btn {
+  min-width: 200px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #5e98c9;
+  background: linear-gradient(
+    90deg,
+    rgb(145, 152, 252) 0%,
+    rgb(55, 133, 206) 100%
+  );
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(152, 177, 243, 0.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+
+.btn::before {
+  content: '';
+  border-radius: 1000px;
+  min-width: calc(200px + 12px);
+  min-height: calc(60px + 12px);
+  border: 3px solid rgba(48, 139, 199);
+  box-shadow: 0 0 60px rgba(64, 156, 218, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.btn:hover::before,
+.btn:focus::before {
+  opacity: 1;
+}
+
+.btn::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #4294d6;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.btn:hover::after,
+.btn:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .btn {
+    min-width: 250px;
+  }
+  .btn::before {
+    min-width: calc(250px + 12px);
+    min-height: calc(60px + 12px);
+    border: 2px solid rgba(48, 139, 199);
+  }
+}

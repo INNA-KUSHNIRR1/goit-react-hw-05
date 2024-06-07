@@ -1,25 +1,54 @@
 .date {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   font-size: 14px;
   margin-top: 5px;
-  color: rgb(141, 142, 148);
+  color: rgb(118, 118, 136);
+  font-size: 12px;
 }
 .listReviews {
+  margin-top: 30px;
   text-align: justify;
 }
 .cardReview {
-  width: 100%;
+  border: 1px solid rgb(179, 179, 184);
+  /* width: 100%; */
   margin-bottom: 20px;
-  background-color: rgba(63, 71, 117, 0.3);
-  padding: 5px;
-  color: rgb(212, 217, 236);
+  /* background-color: rgba(63, 71, 117, 0.3); */
+  padding: 10px 12px;
+  color: rgb(179, 180, 197);
+  background-color: rgba(44, 46, 68);
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  font-size: 12px;
+  box-shadow: 0 0 60px rgba(64, 156, 218, 0.64);
 }
 .name {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: underline;
-  /* color: orange; */
-  color: rgb(265, 165, 0, 0.8);
+  /* text-decoration: underline; */
+  color: rgb(213, 217, 221);
+  /* color: rgb(265, 165, 0, 0.8); */
+  margin-bottom: 5px;
+}
+.btnUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: inherit;
+  border: 1px solid rgba(48, 139, 199);
+  box-shadow: 0 0 10px rgba(48, 139, 199, 0.64);
+  transition: all 250ms ease-in-out;
+}
+.btnUp:hover,
+.btnUp:focus {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 20px rgba(48, 139, 199, 0.64);
 }

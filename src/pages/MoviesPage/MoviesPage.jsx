@@ -27,6 +27,7 @@ const MoviesPage = () => {
     }
     getSearchMovies();
   }, [query]);
+
   const searchMovie = textInput => {
     console.log(textInput);
     setQuery(textInput);

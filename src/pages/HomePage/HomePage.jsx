@@ -6,7 +6,7 @@ import { fetchTrendingMovies } from '../../api/api';
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(movies);
+  console.log('|', movies);
   useEffect(() => {
     async function getTrendingMovies() {
       try {

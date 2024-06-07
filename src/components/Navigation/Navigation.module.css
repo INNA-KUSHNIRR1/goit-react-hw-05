@@ -32,11 +32,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(48, 139, 199);
   width: 80px;
   height: 80px;
   padding: 4px;
   border-radius: 50%;
+  border: 1px solid rgba(48, 139, 199);
   box-shadow: 0 0 20px rgba(48, 139, 199, 0.64);
   /* background-color: rgba(73, 82, 94, 0.6); */
 }

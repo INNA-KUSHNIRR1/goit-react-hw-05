@@ -10,10 +10,10 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  /* color: rgba(152, 177, 243); */
-  color: rgb(238, 138, 23);
+  color: rgb(238, 138, 23, 0.8);
 }
 .boxLink:hover {
   text-decoration: underline;
-  color: rgb(238, 138, 23);
+  color: rgb(238, 138, 23, 0.64);
+  text-shadow: 2px 2px 10px rgba(238, 138, 23);
 }

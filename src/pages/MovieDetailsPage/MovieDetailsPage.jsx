@@ -17,7 +17,7 @@ const MovieDetailsPage = () => {
   console.log('movieId', movieId);
 
   useEffect(() => {
-    const getMovieDetails = async () => {
+    async function getMovieDetails() {
       try {
         const data = await fetchMovieDetails(movieId);
         setMovie(data);
@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
       } finally {
         setLoading(false);
       }
-    };
+    }
     getMovieDetails();
   }, [movieId]);
 

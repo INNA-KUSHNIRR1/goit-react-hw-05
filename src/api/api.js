@@ -11,9 +11,9 @@ const getMoviesFromApi = async (endpoint, params = {}) => {
   return data;
 };
 
-export const fetchTrendingMovies = () =>
+export const fetchTrendingMovies = async () =>
   getMoviesFromApi(`/trending/movie/day`);
-export const fetchMovieDetails = movieId =>
+export const fetchMovieDetails = async movieId =>
   getMoviesFromApi(`/movies/${movieId}`);
-export const searchMovies = query =>
+export const searchMovies = async query =>
   getMoviesFromApi('/search/movie', { query });

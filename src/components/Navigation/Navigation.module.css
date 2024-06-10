@@ -1,16 +1,14 @@
 .header {
-  /* background-color: rgb(71, 58, 48); */
   width: 100%;
   display: flex;
-
-  align-items: start;
+  align-items: center;
   gap: 12px;
   letter-spacing: 1.3px;
 }
 
 .nav {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .link {
@@ -28,7 +26,6 @@
 }
 .linkIcon {
   display: flex;
-  /* align-items: flex-end; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -38,7 +35,6 @@
   border-radius: 50%;
   border: 1px solid rgba(48, 139, 199);
   box-shadow: 0 0 20px rgba(48, 139, 199, 0.64);
-  /* background-color: rgba(73, 82, 94, 0.6); */
 }
 .linkIcon:hover,
 .linkIcon:focus,

@@ -1,0 +1,32 @@
+.wrapperFeedback {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.message {
+  margin-bottom: 20px;
+}
+.feedback {
+  border: 1px solid gray;
+  width: 250px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: rgba(61, 85, 105, 0.8);
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 40px;
+}
+.stars {
+  display: flex;
+  gap: 5px;
+}
+
+.titleFeedback {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: orange;
+}

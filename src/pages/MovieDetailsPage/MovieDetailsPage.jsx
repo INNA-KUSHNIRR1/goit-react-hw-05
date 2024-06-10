@@ -1,9 +1,16 @@
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 import clsx from 'clsx';
 import style from './MovieDetailsPage.module.css';
 import { BiArrowBack } from 'react-icons/bi';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchMovieDetails } from '../../api/api';
+// import Loader from '../../components/Loader/Loader';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(style.link, isActive && style.active);
@@ -16,9 +23,9 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
-  // console.log('MovieDetailsPage', movie);
-  // console.log('movieId', movieId);
+  const backLink = location.state ?? '/movies';
 
   useEffect(() => {
     async function getMovieDetails() {
@@ -36,8 +43,8 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={style.wrapper}>
-      <Link to="/">
-        <div className={style.back}>
+      <Link to={backLink}>
+        <div className={style.backBtn}>
           <BiArrowBack color="rgb(196, 205, 219)" />
           <span className={style.span}>Go back</span>
         </div>
@@ -52,26 +59,29 @@ const MovieDetailsPage = () => {
                   ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
                   : defaultImg
               }
-              width={300}
+              width={400}
               alt={movie.title}
             />
           </div>
           <div className={style.description}>
             <h1 className={style.title}>{movie.title}</h1>
             <p className={style.overview}>{movie.overview}</p>
-            <p>Release Date: {movie.release_date}</p>
-            <p>Rating: {movie.vote_average}</p>
+            <div className={style.info}>
+              <p>Release Date: {movie.release_date}</p>
+              <p>Rating: {movie.vote_average}</p>
+            </div>
+            <div className={style.nav}>
+              <NavLink to="cast" className={buildLinkClass} state={location}>
+                <div className={style.backBtn}>Cast</div>
+              </NavLink>
+              <NavLink to="reviews" className={buildLinkClass} state={location}>
+                <div className={style.backBtn}>Reviews</div>
+              </NavLink>
+            </div>
           </div>
         </div>
       )}
-      <nav className={style.nav}>
-        <NavLink to="cast" className={buildLinkClass}>
-          Cast
-        </NavLink>
-        <NavLink to="reviews" className={buildLinkClass}>
-          Reviews
-        </NavLink>
-      </nav>
+
       <Outlet />
     </div>
   );

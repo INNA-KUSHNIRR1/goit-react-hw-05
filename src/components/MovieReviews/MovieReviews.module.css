@@ -9,13 +9,14 @@
 }
 .listReviews {
   margin-top: 30px;
+  margin-bottom: 30px;
   text-align: justify;
+}
+.cardReview:not(:last-child) {
+  margin-bottom: 20px;
 }
 .cardReview {
   border: 1px solid rgb(179, 179, 184);
-  /* width: 100%; */
-  margin-bottom: 20px;
-  /* background-color: rgba(63, 71, 117, 0.3); */
   padding: 10px 12px;
   color: rgb(179, 180, 197);
   background-color: rgba(44, 46, 68);
@@ -29,9 +30,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  /* text-decoration: underline; */
   color: rgb(213, 217, 221);
-  /* color: rgb(265, 165, 0, 0.8); */
   margin-bottom: 5px;
 }
 .btnUp {
@@ -42,13 +41,17 @@
   height: 50px;
   padding: 5px;
   border-radius: 50%;
-  background-color: inherit;
+  background-color: rgba(44, 46, 68);
   border: 1px solid rgba(48, 139, 199);
-  box-shadow: 0 0 10px rgba(48, 139, 199, 0.64);
+  box-shadow: inset 0 0 10px rgba(48, 139, 199, 0.64);
   transition: all 250ms ease-in-out;
 }
 .btnUp:hover,
 .btnUp:focus {
   transform: scale(1.05);
   box-shadow: 2px 2px 20px rgba(48, 139, 199, 0.64);
+}
+.btnUpBox {
+  display: flex;
+  justify-content: right;
 }

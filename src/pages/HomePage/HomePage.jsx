@@ -5,10 +5,11 @@ import { fetchTrendingMovies } from '../../api/api';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  console.log('|', movies);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     async function getTrendingMovies() {
+      setLoading(true);
       try {
         const { results } = await fetchTrendingMovies();
         setMovies(results);

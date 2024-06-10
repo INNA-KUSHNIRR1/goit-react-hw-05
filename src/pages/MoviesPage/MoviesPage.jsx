@@ -4,43 +4,47 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import style from './MoviesPage.module.css';
 // import { useParams } from 'react-router-dom';
 import { searchMovies } from '../../api/api';
+import RequestNotFound from '../../components/RequestNotFound/RequestNotFound';
+import Loader from '../../components/Loader/Loader';
+// import { useLocation } from 'react-router-dom';
 
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
-
-  console.log('moviesPage', query);
-  console.log('moviesPageResults', movies);
+  const [isEmpty, setIsEmpty] = useState(false);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getSearchMovies() {
+      setLoading(true);
       try {
         const { results } = await searchMovies(query);
-        console.log('search', results);
         setMovies(results);
+        results.length === 0 && setIsEmpty(true);
       } catch (error) {
         console.error('error in App', error);
       } finally {
         setLoading(false);
       }
     }
-    getSearchMovies();
+    query && getSearchMovies();
   }, [query]);
 
   const searchMovie = textInput => {
-    console.log(textInput);
     setQuery(textInput);
+    setIsEmpty(false);
+    setMovies([]);
   };
   return (
-    <div>
+    <>
       <div className={style.page}>
         <SearchForm submit={searchMovie} />
+        {loading && <Loader />}
+        {isEmpty && !loading && <RequestNotFound />}
       </div>
-      <div>
-        <MovieList movies={movies} />
-      </div>
-    </div>
+      {movies.length > 0 && <MovieList movies={movies} />}
+    </>
   );
 };
 export default MoviesPage;

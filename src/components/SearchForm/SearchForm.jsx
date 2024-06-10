@@ -3,8 +3,7 @@ import style from './SearchForm.module.css';
 
 const SearchForm = ({ submit }) => {
   const handleSubmit = (values, actions) => {
-    const textInput = values.text;
-    console.log('forma', textInput);
+    const textInput = values.text.trim();
     submit(textInput);
     actions.resetForm();
   };

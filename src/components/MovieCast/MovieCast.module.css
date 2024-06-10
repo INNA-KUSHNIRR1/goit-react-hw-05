@@ -7,14 +7,15 @@
   margin: 30px 0;
 }
 .cardCast {
-  width: 200px;
+  box-sizing: border-box;
+  width: 223px;
   border: 1px solid rgb(95, 95, 112);
   padding: 5px;
   background-color: rgba(44, 46, 68);
   box-shadow: 0 0 60px rgba(64, 156, 218, 0.64);
 }
 .imgCast {
-  height: 225px;
+  height: auto;
 }
 .titleCast {
   text-align: center;

@@ -42,6 +42,8 @@ const MovieReviews = () => {
   }, [reviews]);
   return (
     <section ref={sectionRef} className={style.sectionReviews}>
+      {loading && <Loader />}
+      {isEmpty && <MessageReviews />}
       {reviews.length > 0 && (
         <ul className={style.listReviews}>
           {reviews.map(review => {
@@ -77,8 +79,6 @@ const MovieReviews = () => {
           </button>
         </div>
       )}
-      {loading && <Loader />}
-      {isEmpty && <MessageReviews />}
     </section>
   );
 };

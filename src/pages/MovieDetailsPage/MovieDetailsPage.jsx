@@ -71,10 +71,10 @@ const MovieDetailsPage = () => {
               <p>Rating: {movie.vote_average}</p>
             </div>
             <div className={style.nav}>
-              <NavLink to="cast" className={buildLinkClass} state={location}>
+              <NavLink to="cast" className={buildLinkClass}>
                 <div className={style.backBtn}>Cast</div>
               </NavLink>
-              <NavLink to="reviews" className={buildLinkClass} state={location}>
+              <NavLink to="reviews" className={buildLinkClass}>
                 <div className={style.backBtn}>Reviews</div>
               </NavLink>
             </div>

@@ -31,6 +31,7 @@ const MovieCast = () => {
 
   return (
     <section>
+      {loading && <Loader />}
       {casts.length > 0 && (
         <ul className={style.listCast}>
           {casts.map(el => {
@@ -65,7 +66,6 @@ const MovieCast = () => {
           </button>
         </div>
       )}
-      {loading && <Loader />}
     </section>
   );
 };

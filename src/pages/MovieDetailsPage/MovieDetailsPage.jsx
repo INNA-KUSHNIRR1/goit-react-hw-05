@@ -8,10 +8,10 @@ import {
 import clsx from 'clsx';
 import style from './MovieDetailsPage.module.css';
 import { BiArrowBack } from 'react-icons/bi';
-import { useEffect, useRef, useState } from 'react';
 import { fetchMovieDetails } from '../../api/api';
 import Error from '../../components/Error/Error';
 import Loader from '../../components/Loader/Loader';
+import { useEffect, useRef, useState } from 'react';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(style.link, isActive && style.active);

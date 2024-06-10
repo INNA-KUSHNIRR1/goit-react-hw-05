@@ -6,9 +6,9 @@ import style from './MoviesPage.module.css';
 import { searchMovies } from '../../api/api';
 import RequestNotFound from '../../components/RequestNotFound/RequestNotFound';
 import Loader from '../../components/Loader/Loader';
-// import { useLocation } from 'react-router-dom';
 import Error from '../../components/Error/Error';
 import ButtonUp from '../../components/ButtonUp/ButtonUp';
+// useSearchParams;!!!!
 
 const MoviesPage = () => {
   const [query, setQuery] = useState('');

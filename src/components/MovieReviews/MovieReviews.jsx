@@ -6,7 +6,8 @@ import style from './MovieReviews.module.css';
 import { MdOutlineKeyboardDoubleArrowUp } from 'react-icons/md';
 import MessageReviews from '../MessageReviews/MessageReviews';
 import Loader from '../Loader/Loader';
-
+import { SlDislike } from 'react-icons/sl';
+import { SlLike } from 'react-icons/sl';
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -51,9 +52,15 @@ const MovieReviews = () => {
                   <h3>{review.author}</h3>
                 </div>
                 <p>{review.content}</p>
-                <div className={style.date}>
-                  <p>Created: {review.created_at}</p>
-                  <p>Updated: {review.updated_at}</p>
+                <div className={style.box}>
+                  <div className={style.likes}>
+                    <SlDislike size={20} />
+                    <SlLike size={20} />
+                  </div>
+                  <div className={style.date}>
+                    <p>Created: {review.created_at}</p>
+                    <p>Updated: {review.updated_at}</p>
+                  </div>
                 </div>
               </li>
             );

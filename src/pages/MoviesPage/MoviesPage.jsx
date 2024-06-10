@@ -7,13 +7,16 @@ import { searchMovies } from '../../api/api';
 import RequestNotFound from '../../components/RequestNotFound/RequestNotFound';
 import Loader from '../../components/Loader/Loader';
 // import { useLocation } from 'react-router-dom';
+import Error from '../../components/Error/Error';
+import ButtonUp from '../../components/ButtonUp/ButtonUp';
 
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [isEmpty, setIsEmpty] = useState(false);
-  // const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function getSearchMovies() {
@@ -24,6 +27,8 @@ const MoviesPage = () => {
         results.length === 0 && setIsEmpty(true);
       } catch (error) {
         console.error('error in App', error);
+        setError(error.message);
+        setIsError(true);
       } finally {
         setLoading(false);
       }
@@ -40,10 +45,16 @@ const MoviesPage = () => {
     <>
       <div className={style.page}>
         <SearchForm submit={searchMovie} />
+        {isError && <Error errorType={error} />}
         {loading && <Loader />}
         {isEmpty && !loading && <RequestNotFound />}
       </div>
       {movies.length > 0 && <MovieList movies={movies} />}
+      {movies.length > 0 && (
+        <div className={style.btnUpBox}>
+          <ButtonUp />
+        </div>
+      )}
     </>
   );
 };

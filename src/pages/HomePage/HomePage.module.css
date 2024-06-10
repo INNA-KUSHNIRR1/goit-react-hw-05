@@ -4,3 +4,7 @@
   text-transform: uppercase;
   text-align: center;
 }
+.btnUpBox {
+  display: flex;
+  justify-content: right;
+}

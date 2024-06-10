@@ -10,7 +10,8 @@ import style from './MovieDetailsPage.module.css';
 import { BiArrowBack } from 'react-icons/bi';
 import { useEffect, useRef, useState } from 'react';
 import { fetchMovieDetails } from '../../api/api';
-// import Loader from '../../components/Loader/Loader';
+import Error from '../../components/Error/Error';
+import Loader from '../../components/Loader/Loader';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(style.link, isActive && style.active);
@@ -24,6 +25,8 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
+  const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   const backLink = location.state ?? '/movies';
 
@@ -34,6 +37,8 @@ const MovieDetailsPage = () => {
         setMovie(data);
       } catch (error) {
         console.error(error);
+        setError(error.message);
+        setIsError(true);
       } finally {
         setLoading(false);
       }
@@ -49,7 +54,8 @@ const MovieDetailsPage = () => {
           <span className={style.span}>Go back</span>
         </div>
       </Link>
-
+      {loading && <Loader />}
+      {isError && <Error errorType={error} />}
       {!loading && movie && (
         <div className={style.movieDetails}>
           <div className={style.poster}>

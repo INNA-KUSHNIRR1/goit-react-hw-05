@@ -20,5 +20,5 @@ export const searchMovies = async query =>
 export const fetchCast = async movieId =>
   getMoviesFromApi(`/movie/${movieId}/credits`);
 export const fetchReviews = async movieId =>
-  getMoviesFromApi(`/movie/${movieId}/reviews`,{page:1});
+  getMoviesFromApi(`/movie/${movieId}/reviews`, { page: 1 });
 //

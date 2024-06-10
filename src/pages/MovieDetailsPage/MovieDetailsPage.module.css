@@ -76,7 +76,9 @@
 }
 .info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: left;
-  gap: 40px;
+  column-gap: 40px;
   color: rgb(134, 134, 163);
+  margin-bottom: 10px;
 }

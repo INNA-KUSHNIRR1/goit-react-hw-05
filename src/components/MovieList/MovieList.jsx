@@ -12,7 +12,7 @@ const MovieList = ({ movies }) => {
       <ul className={style.list}>
         {movies.map(movie => {
           return (
-            <li key={movie.id}>
+            <li key={movie.id} className={style.boxItem}>
               <Link to={`/movies/${movie.id}`} state={location}>
                 <div className={style.boxLink}>
                   <div className={style.poster}>

@@ -3,16 +3,20 @@ import { fetchReviews } from '../../api/api';
 import { useParams } from 'react-router-dom';
 import { FaRegUserCircle } from 'react-icons/fa';
 import style from './MovieReviews.module.css';
-import { MdOutlineKeyboardDoubleArrowUp } from 'react-icons/md';
 import MessageReviews from '../MessageReviews/MessageReviews';
 import Loader from '../Loader/Loader';
 import { SlDislike } from 'react-icons/sl';
 import { SlLike } from 'react-icons/sl';
+import ButtonUp from '../ButtonUp/ButtonUp';
+import Error from '../Error/Error';
+
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
+  const [error, setError] = useState(null);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function getMovieDetails() {
@@ -22,7 +26,9 @@ const MovieReviews = () => {
         setReviews(results);
         results.length === 0 && setIsEmpty(true);
       } catch (error) {
-        console.error(error);
+        console.error(error.message);
+        setError(error.message);
+        setIsError(true);
       } finally {
         setLoading(false);
       }
@@ -42,6 +48,7 @@ const MovieReviews = () => {
   }, [reviews]);
   return (
     <section ref={sectionRef} className={style.sectionReviews}>
+      {isError && <Error errorType={error} />}
       {loading && <Loader />}
       {isEmpty && <MessageReviews />}
       {reviews.length > 0 && (
@@ -71,12 +78,7 @@ const MovieReviews = () => {
       )}
       {reviews.length > 0 && (
         <div className={style.btnUpBox}>
-          <button className={style.btnUp} onClick={() => setReviews([])}>
-            <MdOutlineKeyboardDoubleArrowUp
-              color="rgba(48, 139, 199)"
-              size={32}
-            />
-          </button>
+          <ButtonUp props={setReviews} />
         </div>
       )}
     </section>

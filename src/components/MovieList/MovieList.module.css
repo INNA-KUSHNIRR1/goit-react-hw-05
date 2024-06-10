@@ -26,7 +26,6 @@
   box-shadow: 2px 2px 20px rgba(48, 139, 199, 0.64);
   transition: all 250ms ease-in-out;
   padding: 5px;
-  /* height: auto; */
 }
 .boxLink:hover {
   transform: scale(1.02);

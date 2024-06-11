@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchCast } from '../../api/api';
 import { useParams } from 'react-router-dom';
 import style from './MovieCast.module.css';
@@ -16,6 +16,14 @@ const MovieCast = () => {
   const [casts, setCasts] = useState([]);
   const [error, setError] = useState(null);
   const [isError, setIsError] = useState(false);
+
+  const firstCastsRef = useRef(null);
+  useEffect(() => {
+    if (casts.length > 0 && firstCastsRef.current) {
+      const { height } = firstCastsRef.current.getBoundingClientRect();
+      window.scrollBy({ top: height, behavior: 'smooth' });
+    }
+  }, [casts]);
 
   useEffect(() => {
     async function getMovieDetails() {
@@ -41,9 +49,13 @@ const MovieCast = () => {
       {casts.length === 0 && <MessageCasts />}
       {casts.length > 0 && (
         <ul className={style.listCast}>
-          {casts.map(el => {
+          {casts.map((el, index) => {
             return (
-              <li key={el.id} className={style.cardCast}>
+              <li
+                key={el.id}
+                className={style.cardCast}
+                ref={index === 0 ? firstCastsRef : null}
+              >
                 <div className={style.imgCast}>
                   <img
                     src={
@@ -65,7 +77,7 @@ const MovieCast = () => {
       )}
       {casts.length > 0 && (
         <div className={style.btnUpBox}>
-          <ButtonUp props={setCasts} />
+          <ButtonUp />
         </div>
       )}
     </section>

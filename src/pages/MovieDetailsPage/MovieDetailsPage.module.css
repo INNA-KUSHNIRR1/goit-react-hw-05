@@ -9,18 +9,24 @@
 }
 .link {
   color: rgb(196, 205, 219);
-  text-decoration: underline;
+  text-decoration: none;
+  transition: all 250ms ease-in-out;
+  border-radius: 16px;
+  outline: none;
 }
 
-.link:hover {
-  text-decoration: underline;
+.link:hover,
+.link:focus,
+.link:active {
   color: orange;
+  box-shadow: inset 0 0 20px rgba(48, 139, 199, 0.64);
 }
 
 .active {
   color: orange;
 }
 .backBtn {
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,8 +37,11 @@
   border: 1px solid rgba(48, 139, 199);
   box-shadow: 0 0 20px rgba(48, 139, 199, 0.64);
 }
-.backBtn:hover {
-  background-color: rgb(121, 180, 228, 0.2);
+.backBtn:hover,
+.backBtn:focus,
+.backBtn:active {
+  box-shadow: inset 0 0 20px rgba(48, 139, 199, 0.64),
+    0 0 20px rgba(48, 139, 199, 0.64);
 }
 .span {
   color: rgb(196, 205, 219);
@@ -53,9 +62,7 @@
     rgba(60, 60, 102, 0.3)
   );
 }
-.poster {
-  /* border: 1px solid white; */
-}
+
 .description {
   display: flex;
   flex-direction: column;

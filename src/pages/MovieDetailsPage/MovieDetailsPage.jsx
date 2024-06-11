@@ -51,9 +51,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={style.wrapper}>
-      <Link to={backLink}>
+      <Link to={backLink} outline="none">
         <div className={style.backBtn}>
-          <BiArrowBack color="rgb(196, 205, 219)" />
+          <BiArrowBack color="rgb(196, 205, 219)" outline="none" />
           <span className={style.span}>Go back</span>
         </div>
       </Link>

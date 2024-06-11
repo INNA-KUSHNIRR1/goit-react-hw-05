@@ -18,16 +18,13 @@ const MovieReviews = () => {
   const [error, setError] = useState(null);
   const [isError, setIsError] = useState(false);
 
-  // const sectionRef = useRef();
-  // useEffect(() => {
-  //   if (sectionRef.current && reviews.length > 0) {
-  //     const item = sectionRef.current.lastElementChild;
-  //     if (item) {
-  //       const { height } = item.getBoundingClientRect();
-  //       sectionRef.current.scrollBy({ top: height, behavior: 'smooth' });
-  //     }
-  //   }
-  // }, [reviews]);
+  const firstReviewRef = useRef(null);
+  useEffect(() => {
+    if (reviews.length > 0 && firstReviewRef.current) {
+      const { height } = firstReviewRef.current.getBoundingClientRect();
+      window.scrollBy({ top: height, behavior: 'smooth' });
+    }
+  }, [reviews]);
 
   useEffect(() => {
     async function getMovieDetails() {
@@ -54,9 +51,13 @@ const MovieReviews = () => {
       {isEmpty && <MessageReviews />}
       {reviews.length > 0 && (
         <ul className={style.listReviews}>
-          {reviews.map(review => {
+          {reviews.map((review, index) => {
             return (
-              <li key={review.id} className={style.cardReview}>
+              <li
+                key={review.id}
+                className={style.cardReview}
+                ref={index === 0 ? firstReviewRef : null}
+              >
                 <div className={style.name}>
                   <FaRegUserCircle color="white" size={16} />
                   <h3>{review.author}</h3>
@@ -79,7 +80,7 @@ const MovieReviews = () => {
       )}
       {reviews.length > 0 && (
         <div className={style.btnUpBox}>
-          <ButtonUp props={setReviews} />
+          <ButtonUp />
         </div>
       )}
     </section>

@@ -14,11 +14,16 @@
 .link {
   color: rgb(219, 237, 240);
   text-decoration: none;
+  transition: all 250ms ease-in-out;
+  border-radius: 50%;
 }
 
-.link:hover {
-  text-decoration: underline;
+.link:hover,
+.link:focus {
+  outline: none;
   color: orange;
+  box-shadow: inset 0 0 20px rgba(48, 139, 199, 0.64),
+    0 0 20px rgba(48, 139, 199, 0.64);
 }
 
 .active {
@@ -34,10 +39,11 @@
   padding: 4px;
   border-radius: 50%;
   border: 1px solid rgba(48, 139, 199);
-  box-shadow: 0 0 20px rgba(48, 139, 199, 0.64);
+  box-shadow: 0 0 15px rgba(48, 139, 199, 0.64);
+  transition: all 250ms ease-in-out;
 }
 .linkIcon:hover,
 .linkIcon:focus,
 .linkIcon:active {
-  background-color: rgb(121, 180, 228, 0.2);
+  box-shadow: inset 0 0 25px rgba(48, 139, 199, 0.64);
 }

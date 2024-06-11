@@ -2,27 +2,28 @@ import { useEffect, useState } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import style from './MoviesPage.module.css';
-// import { useParams } from 'react-router-dom';
 import { searchMovies } from '../../api/api';
 import RequestNotFound from '../../components/RequestNotFound/RequestNotFound';
 import Loader from '../../components/Loader/Loader';
 import Error from '../../components/Error/Error';
 import ButtonUp from '../../components/ButtonUp/ButtonUp';
-// useSearchParams;!!!!
+import { useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
-  const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [isEmpty, setIsEmpty] = useState(false);
   const [error, setError] = useState(null);
   const [isError, setIsError] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const text = searchParams.get('text');
 
   useEffect(() => {
+    if (text === '') return;
     async function getSearchMovies() {
       setLoading(true);
       try {
-        const { results } = await searchMovies(query);
+        const { results } = await searchMovies(text);
         setMovies(results);
         results.length === 0 && setIsEmpty(true);
       } catch (error) {
@@ -33,11 +34,11 @@ const MoviesPage = () => {
         setLoading(false);
       }
     }
-    query && getSearchMovies();
-  }, [query]);
+    text && getSearchMovies();
+  }, [text]);
 
   const searchMovie = textInput => {
-    setQuery(textInput);
+    setSearchParams({ text: textInput });
     setIsEmpty(false);
     setMovies([]);
   };

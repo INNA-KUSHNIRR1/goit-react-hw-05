@@ -30,6 +30,9 @@ const MovieDetailsPage = () => {
 
   const backLink = location.state ?? '/movies';
 
+  const navLinkCasts = useRef();
+  const navLinkReviews = useRef();
+
   useEffect(() => {
     async function getMovieDetails() {
       try {
@@ -77,10 +80,20 @@ const MovieDetailsPage = () => {
               <p>Rating: {movie.vote_average}</p>
             </div>
             <div className={style.nav}>
-              <NavLink to="cast" className={buildLinkClass}>
+              <NavLink
+                ref={navLinkCasts}
+                to="cast"
+                state={location.state}
+                className={buildLinkClass}
+              >
                 <div className={style.backBtn}>Cast</div>
               </NavLink>
-              <NavLink to="reviews" className={buildLinkClass}>
+              <NavLink
+                ref={navLinkReviews}
+                to="reviews"
+                state={location.state}
+                className={buildLinkClass}
+              >
                 <div className={style.backBtn}>Reviews</div>
               </NavLink>
             </div>

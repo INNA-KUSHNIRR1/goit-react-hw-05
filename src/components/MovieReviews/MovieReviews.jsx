@@ -18,6 +18,17 @@ const MovieReviews = () => {
   const [error, setError] = useState(null);
   const [isError, setIsError] = useState(false);
 
+  // const sectionRef = useRef();
+  // useEffect(() => {
+  //   if (sectionRef.current && reviews.length > 0) {
+  //     const item = sectionRef.current.lastElementChild;
+  //     if (item) {
+  //       const { height } = item.getBoundingClientRect();
+  //       sectionRef.current.scrollBy({ top: height, behavior: 'smooth' });
+  //     }
+  //   }
+  // }, [reviews]);
+
   useEffect(() => {
     async function getMovieDetails() {
       setLoading(true);
@@ -36,18 +47,8 @@ const MovieReviews = () => {
     getMovieDetails();
   }, [movieId]);
 
-  const sectionRef = useRef();
-  useEffect(() => {
-    if (sectionRef.current && reviews > 0) {
-      const item = sectionRef.current.lastElementChild;
-      if (item) {
-        const { height } = item.getBoundingClientRect();
-        sectionRef.current.scrollBy({ top: height, behavior: 'smooth' });
-      }
-    }
-  }, [reviews]);
   return (
-    <section ref={sectionRef} className={style.sectionReviews}>
+    <section className={style.sectionReviews}>
       {isError && <Error errorType={error} />}
       {loading && <Loader />}
       {isEmpty && <MessageReviews />}

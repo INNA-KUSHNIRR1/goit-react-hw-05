@@ -1,10 +1,18 @@
 import { FaRegUserCircle } from 'react-icons/fa';
 import { CiStar } from 'react-icons/ci';
 import style from './MessageReviews.module.css';
+import { useEffect, useRef } from 'react';
 
 const MessageReviews = () => {
+  const feedbackRef = useRef(null);
+  useEffect(() => {
+    if (feedbackRef.current) {
+      const { height } = feedbackRef.current.getBoundingClientRect();
+      window.scrollBy({ top: height, behavior: 'smooth' });
+    }
+  }, []);
   return (
-    <div className={style.wrapperFeedback}>
+    <div ref={feedbackRef} className={style.wrapperFeedback}>
       <p className={style.message}>There are no reviews yet...</p>
       <div className={style.feedback}>
         <h4 className={style.titleFeedback}>Rating and review</h4>

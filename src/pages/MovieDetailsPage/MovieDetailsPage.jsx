@@ -11,7 +11,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { fetchMovieDetails } from '../../api/api';
 import Error from '../../components/Error/Error';
 import Loader from '../../components/Loader/Loader';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(style.link, isActive && style.active);
@@ -100,8 +100,9 @@ const MovieDetailsPage = () => {
           </div>
         </div>
       )}
-
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const MovieCast = () => {
   useEffect(() => {
     if (casts.length > 0 && firstCastsRef.current) {
       const { height } = firstCastsRef.current.getBoundingClientRect();
-      window.scrollBy({ top: height, behavior: 'smooth' });
+      window.scrollBy({ top: height * 2, behavior: 'smooth' });
     }
   }, [casts]);
 

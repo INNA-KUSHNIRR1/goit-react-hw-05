@@ -76,8 +76,13 @@ const MovieDetailsPage = () => {
             <h1 className={style.title}>{movie.title}</h1>
             <p className={style.overview}>{movie.overview}</p>
             <div className={style.info}>
-              <p>Release Date: {movie.release_date}</p>
-              <p>Rating: {movie.vote_average}</p>
+              <p>
+                Release Date:{' '}
+                <span className={style.span}>{movie.release_date}</span>
+              </p>
+              <p>
+                Rating: <span className={style.span}>{movie.vote_average}</span>
+              </p>
             </div>
             <div className={style.nav}>
               <NavLink

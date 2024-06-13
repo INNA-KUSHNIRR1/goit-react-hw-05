@@ -4,6 +4,7 @@ import style from './HomePage.module.css';
 import { fetchTrendingMovies } from '../../api/api';
 import ButtonUp from '../../components/ButtonUp/ButtonUp';
 import Error from '../../components/Error/Error';
+import Loader from '../../components/Loader/Loader';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -31,6 +32,7 @@ const HomePage = () => {
   return (
     <main className={style.main}>
       <h2 className={style.titleList}>Trending movies</h2>
+      {loading && <Loader />}
       {isError && <Error errorType={error} />}
       {!loading && <MovieList movies={movies} />}
       {movies.length > 0 && (
